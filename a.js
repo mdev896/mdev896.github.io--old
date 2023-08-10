@@ -3,7 +3,7 @@ var dark = true;
 var rate_cost = 10000;
 var seconds = 1000;
 var auto_money = setInterval(function(){
-	document.getElementById("money").innerHTML = Number(document.getElementById("money").innerHTML) + uprate;
+	document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) + uprate);
 	},seconds)
 /*
 {BUTTONS}
@@ -33,6 +33,9 @@ function site_theme(){
 	if(dark){
 		dark = false;
 		buttons.forEach(buttonn => {
+			if(buttonn.id == "cheat"){
+				return;
+			}
 			buttonn.style.backgroundColor = '#CFCDCD';
 			buttonn.style.border = "3px solid #302D2D";
 			buttonn.style.color = '#2B2929';
@@ -45,6 +48,9 @@ function site_theme(){
 	else{
 		dark = true;
 		buttons.forEach(buttonn => {
+			if(buttonn.id == "cheat"){
+				return;
+			}
 			buttonn.style.backgroundColor = '#262323';
 			buttonn.style.border = "3px solid #EDE9E9";
 			buttonn.style.color = '#EDE9E9';
@@ -57,11 +63,12 @@ function site_theme(){
 
 function buton(upp, cost, id) {
 	let money = document.getElementById("money");
-	if(Number(money.innerHTML) >= cost){
+	let real_money = Number(money.innerHTML.slice(6));
+	if(real_money >= cost){
 	let up = document.getElementById("up");
 	uprate += upp;
-	up.innerHTML = uprate;
-	money.innerHTML = Number(money.innerHTML) - cost;
+	up.innerHTML = "Uprate: "+uprate;
+	money.innerHTML = "Money: "+(real_money - cost);
 	document.getElementById(id).innerHTML = Number(document.getElementById(id).innerHTML) +1;
 	} else{
 		alert("Broke nigga");
@@ -71,20 +78,43 @@ function buton(upp, cost, id) {
 		document.getElementById((id*11).toString()).onclick = maxxed;
 	}
 }
+var ch1 = false;
+var ch2 = false;
+function cheat(){
+	let answer = prompt("Enter cheat code");
+	if(answer == "moneyyy" && !ch1){
+		ch1 = true;
+		alert("here is 10000 for u");
+		document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) +10000);
+	} else if(answer == "rich" && !ch2){
+		ch2 = true;
+		alert("here is 30000 for u");
+		document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) +30000);
+	} else if(answer == "cheat code"){
+		alert("are u dumb??????");
+		document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) -50000);
+	}
 
+}
+var first = true;
 function money_rate(){
 	let money = document.getElementById("money");
-	if(Number(money.innerHTML) >= rate_cost){
-		money.innerHTML = Number(money.innerHTML) - rate_cost;
+	let real_money = Number(money.innerHTML.slice(6));
+	if(real_money >= rate_cost){
+		if (first){
+			first = false;
+			alert("for your first time, here is a 'cheat code':'rich'")
+		}
+		money.innerHTML = "Money: "(real_money - rate_cost);
 		clearInterval(auto_money);
 		auto_money = setInterval(function(){
-		document.getElementById("money").innerHTML = Number(document.getElementById("money").innerHTML) + uprate;
+		document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) + uprate);
 		},seconds-100);
 		seconds -= 100;
 		rate_cost += 50000;
 		document.getElementById("rate").innerHTML = "UPGRADE MONEY RATE: "+rate_cost;
 	} else{
-		alery("broke nigga");
+		alert("broke nigga");
 	}
 	if(seconds == 400){
 		document.getElementById("rate").innerHTML = "MAXXED";
