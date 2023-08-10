@@ -1,9 +1,11 @@
+document.getElementById("money").innerHTML = "Money: "+(document.cookie != '' ? document.cookie:0);
 var uprate = 0;
 var dark = true;
 var rate_cost = 100000;
 var seconds = 1200;
 var auto_money = setInterval(function(){
 	document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) + uprate);
+	document.cookie = "money="+Number(document.getElementById("money").innerHTML.slice(6))+"; expires=Thu, 18 Dec 2024 12:00:00 UTC";
 	},seconds)
 /*
 {BUTTONS}
@@ -129,6 +131,7 @@ function money_rate(){
 		clearInterval(auto_money);
 		auto_money = setInterval(function(){
 		document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) + uprate);
+		document.cookie = "money="+Number(document.getElementById("money").innerHTML.slice(6))+"; expires=Thu, 18 Dec 2024 12:00:00 UTC";
 		},seconds-100);
 		seconds -= 100;
 		rate_cost += 50000;
