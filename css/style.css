@@ -35,3 +35,14 @@ code {
 	right: 1px;
 	color: #3C3535;
 }
+
+@keyframes winning {
+	from {scale: 100%;}
+	to {scale: 120%}
+}
+
+button.win:hover{
+	animation-name: winning;
+	animation-duration: 1s;
+	scale: 120%;
+}
