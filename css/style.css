@@ -9,7 +9,7 @@ button {
   	font-size: 11px;
   	border-radius: 8px;
   	box-shadow: 2px 3px 7px;
-  	opacity: 0.6;
+  	opacity: 0.7;
   	transition: 0.2s;
 }
 button:active {
