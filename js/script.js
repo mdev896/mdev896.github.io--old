@@ -1,7 +1,7 @@
-var uprate = 30;
+var uprate = 0;
 var dark = true;
-var rate_cost = 10000;
-var seconds = 1000;
+var rate_cost = 100000;
+var seconds = 1200;
 var auto_money = setInterval(function(){
 	document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) + uprate);
 	},seconds)
@@ -27,6 +27,10 @@ background-color : #D4CACA;
 color : #282525;
 */
 function maxxed(){alert("maxxed")}
+
+function manual(){
+	document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6))+10);
+}
 
 function site_theme(){
 	const buttons = document.querySelectorAll('button');
@@ -108,7 +112,7 @@ function money_rate(){
 			first = false;
 			alert("for your first time, here is a 'cheat code':'rich'")
 		}
-		money.innerHTML = "Money: "(real_money - rate_cost);
+		money.innerHTML = "Money: "+(real_money - rate_cost);
 		clearInterval(auto_money);
 		auto_money = setInterval(function(){
 		document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) + uprate);
@@ -119,7 +123,7 @@ function money_rate(){
 	} else{
 		alert("broke nigga");
 	}
-	if(seconds == 400){
+	if(seconds == 500){
 		document.getElementById("rate").innerHTML = "MAXXED";
 		document.getElementById("rate").onclick = maxxed;
 	}
