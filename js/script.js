@@ -28,6 +28,19 @@ color : #282525;
 */
 function maxxed(){alert("maxxed")}
 
+function win(){
+	if (Number(document.getElementById("money").innerHTML.slice(6))>100000000){
+		alert("YOU WIN");
+		const buttons = document.querySelectorAll('button');
+		buttons.forEach(buttonn => {
+			buttonn.onclick = function(){return;}
+		})
+	}else{
+		alert("You do not have the will and power to win...");
+		document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6))-100000);
+	}
+}
+
 function manual(){
 	document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6))+10);
 }
