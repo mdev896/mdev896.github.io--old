@@ -93,7 +93,7 @@ function cheat(){
 	} else if(answer == "cheat code"){
 		alert("are u dumb??????");
 		document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) -50000);
-	}
+	}else{alert("invalid code nigga");}
 
 }
 var first = true;
