@@ -29,7 +29,7 @@ color : #282525;
 function maxxed(){alert("maxxed")}
 
 function win(){
-	if (Number(document.getElementById("money").innerHTML.slice(6))>100000000){
+	if (Number(document.getElementById("money").innerHTML.slice(6))>10000000){
 		alert("YOU WIN");
 		const buttons = document.querySelectorAll('button');
 		buttons.forEach(buttonn => {
