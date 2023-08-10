@@ -86,14 +86,17 @@ function cheat(){
 		ch1 = true;
 		alert("here is 10000 for u");
 		document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) +10000);
+		return;
 	} else if(answer == "rich" && !ch2){
 		ch2 = true;
 		alert("here is 30000 for u");
 		document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) +30000);
+		return;
 	} else if(answer == "cheat code"){
 		alert("are u dumb??????");
 		document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) -50000);
-	}else{alert("invalid code nigga");}
+		return;
+	}alert("invalid code nigga");
 
 }
 var first = true;
