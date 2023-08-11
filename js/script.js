@@ -3,7 +3,7 @@ if(document.cookie != ""){
 	document.getElementById("money").innerHTML = "Money: "+cookies[0].slice(7);
 	document.getElementById("up").innerHTML = "Uprate: "+cookies[1].slice(8);
 }
-var uprate = 0;
+var uprate = Number(document.getElementById("up").innerHTML.slice(8));
 var dark = true;
 var rate_cost = 100000;
 var seconds = 1200;
