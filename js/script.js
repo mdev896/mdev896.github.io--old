@@ -1,9 +1,12 @@
 var uprate = 0;
 if(document.cookie != ""){
 	cookies = document.cookie.split("; ")
-	document.getElementById("money").innerHTML = "Money: "+cookies[1].slice(8);
-	document.getElementById("up").innerHTML = "Uprate: "+cookies[0].slice(7);
+	document.getElementById("money").innerHTML = "Money: "+cookies[1].slice(7);
+	document.getElementById("up").innerHTML = "Uprate: "+cookies[0].slice(8);
 	uprate = Number(document.getElementById("up").innerHTML.slice(8));
+}else{
+	document.getElementById("money").innerHTML = "Money: 0";
+	document.getElementById("up").innerHTML = "Uprate: 0";
 }
 var dark = true;
 var rate_cost = 100000;
@@ -137,7 +140,7 @@ function money_rate(){
 		clearInterval(auto_money);
 		auto_money = setInterval(function(){
 		document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) + uprate);
-		document.cookie = "money="+Number(document.getElementById("money").innerHTML.slice(6))+"; expires=Thu, 18 Dec 2024 12:00:00 UTC";
+		document.cookie = "money="+Number(document.getElementById("money").innerHTML.slice(7))+"; expires=Thu, 18 Dec 2024 12:00:00 UTC";
 		document.cookie = "uprate="+document.getElementById("up").innerHTML.slice(8)+"; expires=Thu, 18 Dec 2024 12:00:00 UTC";
 		},seconds-100);
 		seconds -= 100;
