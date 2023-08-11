@@ -1,8 +1,8 @@
 var uprate = 0;
 if(document.cookie != ""){
 	cookies = document.cookie.split("; ")
-	document.getElementById("money").innerHTML = "Money: "+cookies[0].slice(7);
-	document.getElementById("up").innerHTML = "Uprate: "+cookies[1].slice(8);
+	document.getElementById("money").innerHTML = "Money: "+cookies[1].slice(8);
+	document.getElementById("up").innerHTML = "Uprate: "+cookies[0].slice(7);
 	uprate = Number(document.getElementById("up").innerHTML.slice(8));
 }
 var dark = true;
