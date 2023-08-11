@@ -1,7 +1,7 @@
 if(document.cookie != ""){
-	document.getElementById("money").innerHTML = "Money: "+(document.cookie.slice(6));
-}else{
-	document.getElementById("money").innerHTML = "Money: 0";
+	cookies = document.cookie.split("; ")
+	document.getElementById("money").innerHTML = "Money: "+cookies[0].slice(7);
+	document.getElementById("up").innerHTML = "Uprate: "+cookies[1].slice(8);
 }
 var uprate = 0;
 var dark = true;
@@ -10,6 +10,7 @@ var seconds = 1200;
 var auto_money = setInterval(function(){
 	document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) + uprate);
 	document.cookie = "money="+document.getElementById("money").innerHTML.slice(7)+"; expires=Thu, 18 Dec 2024 12:00:00 UTC";
+	document.cookie = "uprate="+document.getElementById("up").innerHTML.slice(8)+"; expires=Thu, 18 Dec 2024 12:00:00 UTC";
 	},seconds)
 /*
 {BUTTONS}
@@ -136,6 +137,7 @@ function money_rate(){
 		auto_money = setInterval(function(){
 		document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) + uprate);
 		document.cookie = "money="+Number(document.getElementById("money").innerHTML.slice(6))+"; expires=Thu, 18 Dec 2024 12:00:00 UTC";
+		document.cookie = "uprate="+document.getElementById("up").innerHTML.slice(8)+"; expires=Thu, 18 Dec 2024 12:00:00 UTC";
 		},seconds-100);
 		seconds -= 100;
 		rate_cost += 50000;
