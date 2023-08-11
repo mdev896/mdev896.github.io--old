@@ -31,8 +31,8 @@ body {
 }
 code {
 	position: absolute;
-	bottom:1px;
-	right: 1px;
+	bottom:1%;
+	right: 1%;
 	color: #3C3535;
 }
 
@@ -45,4 +45,9 @@ button.win:hover{
 	animation-name: winning;
 	animation-duration: 1s;
 	scale: 120%;
+}
+a{
+	color: #ffffff;
+	position: absolute;
+	bottom: 5px;
 }
