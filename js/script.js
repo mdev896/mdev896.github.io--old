@@ -13,8 +13,8 @@ var rate_cost = 100000;
 var seconds = 1200;
 var auto_money = setInterval(function(){
 	document.getElementById("money").innerHTML = "Money: "+(Number(document.getElementById("money").innerHTML.slice(6)) + uprate);
-	document.cookie = "money="+document.getElementById("money").innerHTML.slice(7)+"; expires=Thu, 18 Dec 2024 12:00:00 UTC";
-	document.cookie = "uprate="+document.getElementById("up").innerHTML.slice(8)+"; expires=Thu, 18 Dec 2024 12:00:00 UTC";
+	//document.cookie = "money="+document.getElementById("money").innerHTML.slice(7)+"; expires=Thu, 18 Dec 2024 12:00:00 UTC";
+	//document.cookie = "uprate="+document.getElementById("up").innerHTML.slice(8)+"; expires=Thu, 18 Dec 2024 12:00:00 UTC";
 	},seconds)
 /*
 {BUTTONS}
