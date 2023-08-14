@@ -132,6 +132,7 @@ function money_rate(){
 	let money = document.getElementById("money");
 	let real_money = Number(money.innerHTML.slice(6));
 	if(real_money >= rate_cost){
+		rate_cost += 50000;
 		if (first){
 			first = false;
 			alert("for your first time, here is a 'cheat code':'rich'")
@@ -144,7 +145,6 @@ function money_rate(){
 		document.cookie = "uprate="+document.getElementById("up").innerHTML.slice(8)+"; expires=Thu, 18 Dec 2024 12:00:00 UTC";
 		},seconds-100);
 		seconds -= 100;
-		rate_cost += 50000;
 		document.getElementById("rate").innerHTML = "UPGRADE MONEY RATE: "+rate_cost;
 	} else{
 		alert("broke nigga");
