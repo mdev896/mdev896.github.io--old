@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>generic</title>
+		<style>
+			.dot{
+				position: absolute;
+				left: 50%;
+				top: 10%;
+				height: 25px;
+  				width: 25px;
+  				background-color: #bbb;
+  				border-radius: 50%;
+  				display: inline-block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas style="border: 2px solid;" id="canvas" width="300" height="300"></canvas>
+		<script>
+			const delay = ms => new Promise(res => setTimeout(res, ms));
+			var c = document.getElementById("canvas")
+			var ctx = c.getContext("2d");
+			ctx.lineWidth = 2;
+			var max;
+			let colour;
+			function captcha(){max = Math.floor(Math.random()*10);ctx.clearRect(0,0,c.width,c.height);for (var i = 0; i < max; i++) {
+				ctx.beginPath();
+				colour = "#"+Math.floor(Math.random()*16777215).toString(16);
+				ctx.moveTo(Math.floor(Math.random()*300),Math.floor(Math.random()*300));
+				ctx.lineTo(Math.floor(Math.random()*300),Math.floor(Math.random()*300));
+				ctx.strokeStyle = colour;
+				ctx.closePath();
+				ctx.stroke();
+			}document.getElementById("lineNumber").value="";}
+			function lines(){
+				let text = document.getElementById("lineNumber");
+				if (text.value == max){alert("you are a human.");}
+				else {alert("please re-do the captcha.");}
+				captcha();
+			}
+			function text(e){
+				//alert(e.keyCode);
+				if(e.keyCode == 13){lines();}
+			}
+			captcha();
+		</script>
+		<p/>
+		<label>How many lines are there?</label><p/>
+		<input type="number" value="" id="lineNumber" onkeydown="text(event)" pattern="[0-9]">
+		<input type="button" value="submit" onclick="lines()">
+	</body>
+</html>
