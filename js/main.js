@@ -33,7 +33,7 @@ color : #282525;
 function maxxed(){alert("maxxed")}
 
 function win(){
-	if (Number(money.innerHTML.slice(6))>1000000000){
+	if (Number(money.innerHTML.slice(6))>100000000){
 		alert("YOU WIN");
 		const buttons = document.querySelectorAll('button.buy');
 		buttons.forEach(buttonn => {
@@ -71,12 +71,12 @@ function ascend(){
 			document.getElementById(i*11).innerHTML = "BUY";
 		}document.querySelectorAll("button.buy").forEach(buttonnn =>{
 			buttonnn.onclick = buton_activate;
-			if(buttonnn.id == "11"){document.getElementById("6").innerHTML = "cost:2000 uprate:45";}
-			if(buttonnn.id == "22"){document.getElementById("7").innerHTML ="cost:6000 uprate:150";}
-			if(buttonnn.id == "33"){document.getElementById("8").innerHTML = "cost:20000 uprate:525";}
-			if(buttonnn.id == "44"){document.getElementById("9").innerHTML = "cost:40000 uprate:1275";}
-			if(buttonnn.id == "55"){document.getElementById("10").innerHTML = "cost:100000 uprate:3435";}
-			if(buttonnn.id == "rate"){buttonnn.innerHTML = "UPGRADE MONEY RATE: 150000";buttonnn.onclick = money_rate;}
+			if(buttonnn.id == "11"){document.getElementById("6").innerHTML = "Ascended cost:2000 uprate:45";}
+			if(buttonnn.id == "22"){document.getElementById("7").innerHTML ="Ascended cost:6000 uprate:150";}
+			if(buttonnn.id == "33"){document.getElementById("8").innerHTML = "Ascended cost:20000 uprate:525";}
+			if(buttonnn.id == "44"){document.getElementById("9").innerHTML = "Ascended cost:40000 uprate:1275";}
+			if(buttonnn.id == "55"){document.getElementById("10").innerHTML = "Ascended cost:100000 uprate:3435";}
+			if(buttonnn.id == "rate"){buttonnn.innerHTML = "Ascended UPGRADE MONEY RATE: 150000";buttonnn.onclick = money_rate;}
 		});document.getElementById("ascend").onclick = function(){return;};document.getElementById("ascend").style.visibility = "hidden";
 	}if(!max){
 		alert("You are not maxxed to ascend");
